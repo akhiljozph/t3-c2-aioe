@@ -10,7 +10,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   
-  label: string[] = ["0", "0", "0", "0", "0", "0", "0", "0", "0"];
+  label: string[] = ["-", "-", "-", "-", "-", "-", "-", "-", "-"];
   actionCount: number =0 ;
   cellActions: any[] = [];
   winningCombinations = [
@@ -53,11 +53,11 @@ export class AppComponent implements OnInit {
     });
     if (whoWon[0] === 1 && whoWon[1] === 1 && whoWon[2] == 1) {
       this.winner = "Player 1 won";
-      this.label = ["0", "0", "0", "0", "0", "0", "0", "0", "0"];
+      this.label = ["-", "-", "-", "-", "-", "-", "-", "-", "-"];
       whoWon = [0, 0, 0];
     } else if (whoWon[0] === 2 && whoWon[1] === 2 && whoWon[2] == 2) {
       this.winner = "Player 2 won";
-      this.label = ["0", "0", "0", "0", "0", "0", "0", "0", "0"];
+      this.label = ["-", "-", "-", "-", "-", "-", "-", "-", "-"];
       whoWon = [0, 0, 0];
     }
   }
@@ -72,12 +72,12 @@ export class AppComponent implements OnInit {
       if (cellAction.hasOwnProperty(cellIdentifier)) {
         const result = cellAction[cellIdentifier]%2;
         if (result === 0) {
-          this.label[index] = "2";
+          this.label[index] = "O";
         } else {
-          this.label[index] = "1";
+          this.label[index] = "X";
         }
       } else {
-        this.label[index] = "0";
+        this.label[index] = "-";
       }
     });
   }
