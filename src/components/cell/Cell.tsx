@@ -8,7 +8,7 @@ interface CellProps {
 function Cell(props: CellProps) {
     return (
         <button className="tic-tac-cell" onClick={props?.onCellClick}>
-            X
+            {props?.value}
         </button>
     )
 };
