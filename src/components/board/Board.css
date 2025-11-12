@@ -4,6 +4,8 @@
     justify-content: center;
     height: inherit;
     background: #bababa;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .tic-tac-board {
@@ -15,4 +17,28 @@
     padding: 1rem;
     box-sizing: border-box;
     background: transparent;
+}
+
+.reset-btn {
+    font-size: 5rem;
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color: #FCB100;
+    color: #000;
+    font-family: "play";
+    font-weight: 700;
+    letter-spacing: 0.25rem;
+    ;
+}
+
+.reset-btn:hover {
+    background-color: #000;
+    color: #FCB100;
+}
+
+.tic-tac-alert {
+    font-size: 5rem;
+    font-family: "play";
+    color: #000;
 }

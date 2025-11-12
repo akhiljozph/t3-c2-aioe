@@ -7,7 +7,7 @@ interface CellProps {
 
 function Cell(props: CellProps) {
     return (
-        <button className="tic-tac-cell" onClick={props?.onCellClick}>
+        <button className="tic-tac-cell" onClick={props?.onCellClick} disabled={!!props?.value}>
             {props?.value}
         </button>
     )
