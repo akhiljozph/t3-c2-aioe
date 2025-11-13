@@ -1,13 +1,13 @@
 .tic-tac-cell {
     color: #000;
     cursor: pointer;
-    font-size: 10rem;
+    font-size: 3rem;
     font-weight: 600;
     user-select: none;
     background: #fff;
     place-items: center;
     aspect-ratio: 1 / 1;
-    border-radius: 12px;
+    border-radius: 0.5rem;
     display: inline-grid;
     border: 1px solid #ddd;
     transition: transform .08s ease, box-shadow .08s ease;

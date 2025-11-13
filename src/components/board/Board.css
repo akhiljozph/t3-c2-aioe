@@ -5,31 +5,29 @@
     height: inherit;
     background: #bababa;
     flex-direction: column;
-    gap: 2rem;
+    gap: 0.5rem;
 }
 
 .tic-tac-board {
-    width: 60rem;
+    width: 20rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 0.25rem;
     padding: 1rem;
     box-sizing: border-box;
     background: transparent;
 }
 
 .reset-btn {
-    font-size: 5rem;
-    padding: 1rem 3rem;
-    border-radius: 1rem;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
     cursor: pointer;
     background-color: #FCB100;
     color: #000;
     font-family: "play";
     font-weight: 700;
-    letter-spacing: 0.25rem;
-    ;
 }
 
 .reset-btn:hover {
@@ -38,7 +36,50 @@
 }
 
 .tic-tac-alert {
-    font-size: 5rem;
+    font-size: 1rem;
     font-family: "play";
     color: #000;
+}
+
+.tic-tac-players-information {
+    font-family: "play";
+    font-size: 1rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.tic-tac-input {
+    font-family: "play";
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.players-name {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+table,
+th,
+td {
+    border-color: black;
+    border: 1px solid;
+}
+
+th,
+td {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+th {
+    background-color: #FCB100;
+}
+
+header {
+    font-family: "play";
+    font-size: 3rem;
+    font-weight: 700;
 }
