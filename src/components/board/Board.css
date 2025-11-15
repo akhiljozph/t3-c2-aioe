@@ -59,6 +59,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    justify-content: flex-end;
 }
 
 table,
@@ -82,4 +83,8 @@ header {
     font-family: "play";
     font-size: 3rem;
     font-weight: 700;
+}
+
+#scoreboard-title {
+    text-align: center;
 }
