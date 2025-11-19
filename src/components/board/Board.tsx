@@ -17,8 +17,41 @@ function Board() {
 
     const [cells, setCells] = useState<string[]>(Array(9).fill(''));
     const [clickTracer, setClickTracer] = useState(0);
+    const [result, setResult] = useState('');
+    const [playerOne, setPlayerOne] = useState('Player 1');
+    const [playerTwo, setPlayerTwo] = useState('Player 2');
 
-    useEffect(() => { }, [cells]);
+    useEffect(() => {
+        checkForTheWinner();
+    }, [cells]);
+
+    const checkForTheWinner = () => {
+        if (cells.every((cell) => cell === '')) return;
+
+        let xValues: number[] = [];
+        let oValues: number[] = [];
+
+        cells.forEach((cell, index) => {
+            if (cell === 'X') {
+                xValues.push(index);
+            } else if (cell === 'O') {
+                oValues.push(index);
+            }
+        });
+
+        if (xValues.length < 3 && oValues.length < 3) return;
+
+        winningSeries.forEach((series) => {
+            console.log(cells);
+            if (series.every((value) => xValues.includes(value))) {
+                setResult(`${playerOne} won!`);
+            } else if (series.every((value) => oValues.includes(value))) {
+                setResult(`${playerTwo} won!`);
+            } else if (cells.every((cell) => cell !== '')) {
+                setResult(`It's a draw!`);
+            }
+        });
+    }
 
     const handleClick = (index: number) => {
         setClickTracer(prev => {
@@ -37,12 +70,18 @@ function Board() {
             return next;
         });
 
-        // Winning logic goes here!
-        console.log(cells);
     };
 
     const resetProgress = () => {
         setCells(Array(9).fill(''));
+    }
+
+    const setPlayerOneValues = (event: any) => {
+        setPlayerOne(event.target.value);
+    }
+
+    const setPlayerTwoValues = (event: any) => {
+        setPlayerTwo(event.target.value);
     }
 
     return (
@@ -59,6 +98,7 @@ function Board() {
                             id="player-one"
                             className="tic-tac-input"
                             maxLength={10}
+                            onKeyUp={(event) => setPlayerOneValues(event)}
                         />
                     </div>
 
@@ -68,6 +108,7 @@ function Board() {
                             id="player-two"
                             className="tic-tac-input"
                             maxLength={10}
+                            onKeyUp={(event) => setPlayerTwoValues(event)}
                         />
                     </div>
                 </form>
@@ -77,8 +118,8 @@ function Board() {
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Player 1</th>
-                                <th scope="col">Player 2</th>
+                                <th scope="col">{playerOne}</th>
+                                <th scope="col">{playerTwo}</th>
                                 <th scope="col">Draw</th>
                             </tr>
                         </thead>
@@ -93,7 +134,7 @@ function Board() {
                 </section>
             </section>
 
-            <p role="alert" className="tic-tac-alert">Player 1 won!</p>
+            <p role="alert" className="tic-tac-alert">{result}</p>
 
             <section className="tic-tac-board" aria-label="Game board">
                 {cells.map((cell, cellIndex) => (
