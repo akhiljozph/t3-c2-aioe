@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import Cell from "../cell/Cell";
 
 import "./Board.css";
@@ -20,6 +21,11 @@ function Board() {
     const [result, setResult] = useState('');
     const [playerOne, setPlayerOne] = useState('Player 1');
     const [playerTwo, setPlayerTwo] = useState('Player 2');
+    const [winningValues, setWinningValues] = useState({
+        playerOne: 0,
+        playerTwo: 0,
+        draw: 0
+    });
 
     useEffect(() => {
         checkForTheWinner();
@@ -45,10 +51,22 @@ function Board() {
             console.log(cells);
             if (series.every((value) => xValues.includes(value))) {
                 setResult(`${playerOne} won!`);
+                setWinningValues(prev => ({
+                    ...prev,
+                    playerOne: prev.playerOne + 1
+                }));
             } else if (series.every((value) => oValues.includes(value))) {
                 setResult(`${playerTwo} won!`);
+                setWinningValues(prev => ({
+                    ...prev,
+                    playerTwo: prev.playerTwo + 1
+                }));
             } else if (cells.every((cell) => cell !== '')) {
                 setResult(`It's a draw!`);
+                setWinningValues(prev => ({
+                    ...prev,
+                    draw: prev.draw + 1
+                }));
             }
         });
     }
@@ -125,9 +143,9 @@ function Board() {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0</td>
+                                <td>{winningValues?.playerOne}</td>
+                                <td>{winningValues?.playerTwo}</td>
+                                <td>{winningValues?.draw}</td>
                             </tr>
                         </tbody>
                     </table>
