@@ -17,10 +17,11 @@ function Board() {
     ];
 
     const [cells, setCells] = useState<string[]>(Array(9).fill(''));
-    const [clickTracer, setClickTracer] = useState(0);
-    const [result, setResult] = useState('');
     const [playerOne, setPlayerOne] = useState('Player 1');
     const [playerTwo, setPlayerTwo] = useState('Player 2');
+    const [, setClickTracer] = useState(0);
+    const [result, setResult] = useState('');
+
     const [winningValues, setWinningValues] = useState({
         playerOne: 0,
         playerTwo: 0,
@@ -48,7 +49,6 @@ function Board() {
         if (xValues.length < 3 && oValues.length < 3) return;
 
         winningSeries.forEach((series) => {
-            console.log(cells);
             if (series.every((value) => xValues.includes(value))) {
                 setResult(`${playerOne} won!`);
                 setWinningValues(prev => ({
