@@ -110,7 +110,7 @@ function Board() {
 
             <section className="tic-tac-players-information">
                 <form className="players-name">
-                    <div>
+                    <>
                         <label htmlFor="player-one">Player 1:&nbsp;</label>
                         <input
                             id="player-one"
@@ -118,9 +118,9 @@ function Board() {
                             maxLength={10}
                             onKeyUp={(event) => setPlayerOneValues(event)}
                         />
-                    </div>
+                    </>
 
-                    <div>
+                    <>
                         <label htmlFor="player-two">Player 2:&nbsp;</label>
                         <input
                             id="player-two"
@@ -128,7 +128,7 @@ function Board() {
                             maxLength={10}
                             onKeyUp={(event) => setPlayerTwoValues(event)}
                         />
-                    </div>
+                    </>
                 </form>
 
                 <section aria-labelledby="scoreboard-title">
