@@ -112,8 +112,7 @@ function Board() {
                 <form className="players-name">
                     <>
                         <label htmlFor="player-one">Player 1:&nbsp;</label>
-                        <input
-                            id="player-one"
+                        <input id="player-one"
                             className="tic-tac-input"
                             maxLength={10}
                             onKeyUp={(event) => setPlayerOneValues(event)}
@@ -122,8 +121,7 @@ function Board() {
 
                     <>
                         <label htmlFor="player-two">Player 2:&nbsp;</label>
-                        <input
-                            id="player-two"
+                        <input id="player-two"
                             className="tic-tac-input"
                             maxLength={10}
                             onKeyUp={(event) => setPlayerTwoValues(event)}
